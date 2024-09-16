@@ -1,0 +1,132 @@
+
+.img-container{
+    display: flex;
+    background-image: url('waves-7111758_1920.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background image fixed */
+    position: relative;
+    height: 40vh;
+}
+.img-container::before {
+    content: "";
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.4);
+    z-index:1;
+}
+.title-photo{ /*sport photo with web*/
+    margin: 0;
+    padding: 0;
+}
+.who-title{ /* sport image icon and text beside*/
+    display: flex;
+    background-color: rgb(228, 228, 228);
+    padding-right: 10%;
+}
+p{
+    font-size: 20px;
+    margin: 0;
+}
+#who{/* h1 who we are*/
+    padding-left: 15px;
+    font-size: 45px;
+} 
+.people{ /*includes both A and N and descriptions*/
+    background-color: rgb(244, 242, 245);
+    padding-top: 10%;
+    padding-bottom: 10%
+}
+.headshot{ /* individual photo*/
+    display: block;
+    margin: auto;
+    border: 5px solid #b664cf;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0.1);
+}
+.name-link{ /*name with linked in link beside it*/
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.show-banner{ /* show more banner with icon and text*/
+    display: flex;
+    align-items: center;
+    background-color: #b664cf;
+    width: 300px;
+    margin: auto;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0.1);
+}
+.expand{ /*wrapper around down arrow icon show more text*/
+    display: flex;
+    align-items: center;
+}
+.show-icon :hover{
+    cursor: pointer;
+}
+.show-icon{ /* arrow icon*/
+    margin-right: 40px;
+    margin-left: 20px;
+}
+.description{ /*expanded personal description*/
+    width: 300px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+h3{
+    font-size: 24px;
+    margin: 0;
+}
+.hidden{ /* hidden stuff when description is collapsed*/
+    display: none;
+}
+.description{ /* personal description text*/
+    background-color: #fcefff;
+}
+@media (max-width: 1050px){
+    .title-photo{
+        max-width: 375px;
+        max-height: 300px;
+    }
+    .who-title{
+        padding-right: 0%;
+    }
+
+}
+@media(max-width: 860px){
+    .who-title{
+        display: block;
+    }
+    .title-photo{
+        max-width: 300px;
+        max-height: 240px;
+        display: block;
+        margin: auto;
+    }
+    .title-text{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+}
+@media(min-width: 680px){
+    .people{
+        display: flex;
+        gap: 2%;
+        margin: auto;
+        justify-content: center;
+    }
+}
+@media(min-width: 820px){
+    .people{
+        display: flex;
+        gap: 10%;
+        margin: auto;
+        justify-content: center;
+    }
+}

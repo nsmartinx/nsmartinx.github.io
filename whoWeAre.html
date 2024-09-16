@@ -1,0 +1,159 @@
+<html lang= "en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale+1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="whoStyling.css" />
+    <title>Who We Are</title>
+</head>
+<body>
+    <!--Header navigation and links-->
+    <div class="navigation" id="header">
+        <div class ="sidebar">
+            <ul class="nav">
+                <li onclick= hideSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#D9D9D9"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="/whoWeAre.html">Who We Are</a></li>
+                <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
+                <li><a href="/technDetails.html">Technical Details</a></li>
+                <li><a href="/relatedLinks.html">Related Links</a></li>
+            </ul>
+        </div>
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="Skatelligence logo black.png" alt="Skatelligence full logo" style="width: 250px; height: 50px" />
+        </a>
+            <ul class="nav">
+                <div class="hideOnMobile">
+                <li ><a href="/whoWeAre.html">Who We Are</a></li>
+                <!--<li ><a href="/Demonstrations.html">Demonstrations</a></li>-->
+                <li ><a href="/technDetails.html">Technical Details</a></li>
+                <li ><a href="/relatedLinks.html">Related Links</a></li>
+                </div>
+                <div class="menu-button">
+                <li  onClick= showSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </div>
+            </ul>
+        </div>
+        <script>
+            function showSidebar(){
+                const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'flex'
+            }
+            function hideSidebar(){
+                 const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'none'
+            }
+        </script>
+
+    <!--image at top, maybe video?-->
+    <div class="img-container"></div>
+    <div>
+        <div class="who-title">
+            <img class="title-photo" src="Who we are graphic v2.png" alt="graphic with internet web icons and sport photos" style="width: 500px ;height: 400px"/>
+            <div class="title-text">
+            <h1>Made by Athletes, for Athletes.</h1>
+            <p>Skatelligence was created from our passion for sport. We believe that those that live and breathe pushing for excellence should have access to the best tools available for their success. Skatelligence strives to provide innovative solutions to empower athletes to push their limits and achieve their goals. This is not just a project, but a mission to create tools to give back to the sporting communities which have shaped us into who we are. </p>
+            </div>
+        </div>
+        <h1 id="who">Who We Are</h1>
+        <div class="people">
+        <!-- Angela Section-->
+        <div class="person">
+            <img class="headshot" src="headshotAH.png" alt="picture of Angela Huang" style="width: 300px; height: 400px;"/>
+            <div class="name-link">
+                <h2>Angela Huang</h3>
+                <a href="https://www.linkedin.com/in/angela-huang-b54315284/"><img src="linkedIn.png" style="width:20px; height: 20px;"></a>
+            </div>
+            <div class="show-banner">
+                <div class="expand">
+                    <a onclick=showDescription() class="show-icon" href="javascript:void(0);"><svg xmls ="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg></a>
+                    <h3>Show More</h3>
+                </div>  
+            </div>
+            <div class="hidden">
+                <div class="description">
+                    <p>Angela Huang is a first year student at the University of Waterloo for Biomedical Engineering. Angela has competed nationally in Canada for figure skating at the Junior and Novice levels. This September, she'll be on the Waterloo Warriors Varsity Figure Skating Team.</p>
+                </div>
+                <div class="show-banner">
+                    <a onclick=hideDescription() class="show-icon" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/></svg></a>
+                    <h3>Show Less</h3> 
+                </div>
+            </div>
+        </div>
+        <div class="padder"></div>
+
+        <!--Nathan section-->
+        <div class="person">
+            <img class="headshot" src="headshotNM.JPG" alt="picture of Angela Huang" style="width: 300px; height: 400px;"/>
+            <div class="name-link">
+                <h2>Nathan Martin</h3>
+                <a href="https://ca.linkedin.com/in/nathan-s-martin"><img src="linkedIn.png" style="width:20px; height: 20px;"></a>
+            </div>
+            <div class="show-banner">
+                <div class="expand">
+                    <a onclick=showDescriptionNM() class="show-icon" href="javascript:void(0);"><svg xmls ="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg></a>
+                    <h3>Show More</h3>
+                </div>  
+            </div>
+            <div class="hidden">
+                <div class="description">
+                    <p>Nathan Martin is a second year student at the University of Waterloo for Software Engineering. Nathan is a three time Junior Canadian Track Clycling champion, and he has represented Canadian cycling teams internationally various times.</p>
+                </div>
+                <div class="show-banner">
+                    <a onclick=hideDescriptionNM() class="show-icon" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/></svg></a>
+                    <h3>Show Less</h3> 
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+            function showDescription(){
+                const description = document.querySelector('.hidden');
+                const expand = document.querySelector('.expand');
+                
+                description.style.display='block';
+                expand.style.visibility = 'hidden';
+            }
+            function hideDescription(){
+                const description = document.querySelector('.hidden');
+                const expand = document.querySelector('.expand');
+
+                description.style.display = 'none';
+                expand.style.visibility='visible';
+            }
+            function showDescriptionNM(){
+                const description = document.querySelectorAll('.hidden'); // select all elements of class hidden
+                const descriptionNM = description[1]; // get second iteration of .hidden class
+                
+                const expand = document.querySelectorAll('.expand'); 
+                const expandNM = expand[1]; // get second iteration of .expand class
+
+                descriptionNM.style.display='block';
+                expandNM.style.visibility='hidden';
+            }
+            function hideDescriptionNM(){
+                const description = document.querySelectorAll('.hidden'); // select all elements of class hidden
+                const descriptionNM = description[1]; // get second iteration of .hidden class
+                
+                const expand = document.querySelectorAll('.expand'); 
+                const expandNM = expand[1]; // get second iteration of .expand class
+
+                descriptionNM.style.display='none';
+                expandNM.style.visibility='visible';
+            }
+        </script>
+    </div>
+    <div class="padder"></div>
+    <!--footer navigation and links-->
+    <div class="footer">
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="SkatelligenceFullLogoCropped.png" alt="Skatelligence full logo" style="width: 250px; height: 59px" />
+        </a>
+        <ul class="footNav">
+            <li><a href="/whoWeAre.html">Who We Are</a></li>
+            <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
+            <li><a href="/technDetails.html">Technical Details</a></li>
+            <li><a href="/relatedLinks.html">Related Links</a></li>
+        </ul>
+    </div>
+</body>
+</html>

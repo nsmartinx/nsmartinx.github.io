@@ -1,0 +1,21 @@
+img{
+    margin:0px;
+}
+.nav li {
+    display: inline-block;
+    font-size: 24px;
+    margin-left: 140px; /* Adjust spacing as needed */
+}
+#header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    padding: 0px;
+    color: white;
+    font-family: Verdana, sans-serif;
+}
+a {
+    color: white; /* Change to your desired color */
+}
+    a:visited {
+        color: navajowhite; /* Change to your desired color */
+    }

@@ -1,0 +1,143 @@
+.img-container{ /*container for image at the top of the page*/
+    display: flex;
+    background-image: url('waves-7111758_1920.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background image fixed */
+    position: relative;
+    height: 40vh;
+}
+.img-container::before { /*tints the image*/
+    content: "";
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.4);
+    z-index:1;
+}
+
+h1{
+    font-size: 45px;
+    margin: 0;
+    padding-left: 15px;
+}
+h2{
+    padding-left: 15px;
+    font-size: 35px;
+}
+h3{
+    font-size: 24px;
+    padding-left: 15px;
+}
+p{
+    font-size: 20px;
+    padding-left: 15px;
+}
+.flex-images{
+    display: flex;
+    justify-content: center;
+}
+#dotted-bottom{ /*adds dotted line to the bottom of the block*/
+    border-bottom: 2px dotted black;
+    padding-bottom: 15px;
+}
+#last-text-code{ /* last text code block */
+    align-items: center;
+}
+.tech-title{ /* add background color and padding to title image and text*/
+    background-color: rgb(231, 229, 235);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.title-image{ /*image that accompanies the title of the page, design for mobile first then scale up in @media for large screen*/
+    /* centering the image*/
+    display: block;
+    margin: auto;
+    max-width: 300px;
+    max-height: 400px;
+}
+.img-example{ /* image that will have a caption on it, designed for larger screens*/
+    display: block;
+    margin: auto;
+}
+.img-caption{ /* container for image and caption*/
+    text-align: center;
+    font-size: 12px;
+}
+.blue{ /* section of text with blue background, can modify*/
+    background-color: rgb(204, 203, 241);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.code-block{ /* blocks with code in them*/
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.rounded-block{ /* block with background colour and rounded*/
+    background-color: rgb(211, 218, 224);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+@media(max-width: 1200px){
+    .flex-images{
+        display: block;
+    }
+}
+@media(min-width: 650px){ /* if the screen size is minimum 700px*/
+    .tech-title{ /* title including image and text*/
+        display: flex; /* makes the elements within side by side instead*/
+    }
+}
+@media(min-width: 1000px){
+    .title-text{
+        padding-right: 10%; /* adding padding to the right 10 % of screen width*/
+    }
+    .hardware-schematic{ /*includes the hardware text and schematic image*/
+        display: flex;
+    }
+    .img-example{
+        margin-top: 100px;
+    }
+}
+@media(min-width: 1200px){
+    .hardware-schematic{
+        gap: 13%;
+    }
+}
+@media(min-width: 1400px){
+    .hardware-schematic{
+        gap: 20%;
+    }
+    .text-code{ /* make elements side by side */
+        display: flex;
+    }
+    .text-code .code-block{ /*add margins to code snippet */
+        margin-top: 50px;
+        margin-right: 50px;
+    }
+    .code-text{
+        display: flex;
+        align-items: center;
+    }
+    .code-text .code-block{
+        order: -1;
+        margin-left: 100px;
+    }
+    .code-text .text-description{
+        margin-right: 100px;
+    }
+    .flex-images{
+        gap: 10%;
+    }
+}
+@media(max-width: 600px){ /* if the screen width is under 800px*/
+    .img-example{ /* change image size for smaller screen, modify aspect ratio based on image*/
+        max-width: 320px;
+        max-height: 204px;
+    }
+}

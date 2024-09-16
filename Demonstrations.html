@@ -1,0 +1,87 @@
+<html lang= "en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale+1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="demoStyling.css"/>
+    <title>Demonstrations</title>
+</head>
+<body>
+    <!--Header navigation and links-->
+    <div class="navigation" id="header">
+        <div class ="sidebar">
+            <ul class="nav">
+                <li onclick= hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#D9D9D9"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="/whoWeAre.html">Who We Are</a></li>
+                <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
+                <li><a href="/technDetails.html">Technical Details</a></li>
+                <li><a href="/relatedLinks.html">Related Links</a></li>
+            </ul>
+        </div>
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="Skatelligence logo black.png" alt="Skatelligence full logo" style="width: 250px; height: 50px" />
+        </a>
+            <ul class="nav">
+                <div class="hideOnMobile">
+                <li ><a href="/whoWeAre.html">Who We Are</a></li>
+                <!--<li ><a href="/Demonstrations.html">Demonstrations</a></li>-->
+                <li ><a href="/technDetails.html">Technical Details</a></li>
+                <li ><a href="/relatedLinks.html">Related Links</a></li>
+                </div>
+                <div class="menu-button">
+                <li  onClick= showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </div>
+            </ul>
+        </div>
+        <script>
+            function showSidebar(){
+                const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'flex'
+            }
+            function hideSidebar(){
+                 const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'none'
+            }
+        </script>
+    <div class="img-container"></div>
+    <div class="padder"></div>
+    <div class="head">
+        <div class="headText">
+        <h1 class="pad">Demonstrations</h1>
+        <h4 class = "pad">Watch Skatelligence in Action</h4>
+        <img class="deviceIcon" src="placeHolderCat.jpg" style="width: 100px; height: 100px"/>
+        </div>
+        <div class="video-container">
+                <video controls>
+                    <source src="axelDemo.MOV">
+                    Your browser does not support the video tag.
+                </video>
+        </div>
+ 
+    </div>
+    <div class=  "padder"></div>
+    <div class="videos">
+        <div class = "vid">
+            <div class="video-container">
+                <video controls>
+                    <source src="axelDemo.MOV">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p><b>Single Axel wearing Skatelligence sensors</b></p>
+        </div>        
+    </div>
+    <!--footer navigation and links-->
+    <div class="footer">
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="SkatelligenceFullLogoCropped.png" alt="Skatelligence full logo" style="width: 250px; height: 59px" />
+        </a>
+        <ul class="footNav">
+            <li><a href="/whoWeAre.html">Who We Are</a></li>
+            <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
+            <li><a href="/technDetails.html">Technical Details</a></li>
+            <li><a href="/relatedLinks.html">Related Links</a></li>
+        </ul>
+    </div>
+</body>
+</html>

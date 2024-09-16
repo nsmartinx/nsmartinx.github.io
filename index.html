@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale+1.0">
+    <title>Skatelligence</title>
+    <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+    <!--Header navigation and links-->
+    <div class="navigation" id="header">
+    <div class ="sidebar">
+        <ul class="nav" class = "headNav">
+            <li onclick= hideSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#D9D9D9"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="/whoWeAre.html">Who We Are</a></li>
+            <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
+            <li><a href="/technDetails.html">Technical Details</a></li>
+            <li><a href="/relatedLinks.html">Related Links</a></li>
+        </ul>
+    </div>
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="Skatelligence logo black.png" alt="Skatelligence full logo" style="width: 250px; height: 50px" />
+        </a>
+        <ul class="nav">
+            <div class="hideOnMobile">
+            <li ><a href="/whoWeAre.html">Who We Are</a></li>
+            <!--<li ><a href="/Demonstrations.html">Demonstrations</a></li>-->
+            <li ><a href="/technDetails.html">Technical Details</a></li>
+            <li ><a href="/relatedLinks.html">Related Links</a></li>
+            </div>
+            <div class="menu-button">
+            <li  onClick= showSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+            </div>
+        </ul>
+    </div>
+    <script>
+        function showSidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function hideSidebar(){
+             const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+    </script>
+    <div class="flex-container">
+        <!--Large text animation-->
+        <div class="container">
+            <span id="text1">Figure Skating Training</span>
+            <span id="text2"><i>Reimagined</i></span>
+        </div>
+        <!--acccompanying media to title text, animation?-->
+        <!--<div class="containerMedia">
+            <div>
+                <img id="titleMedia" src="placeHolderCat.jpg" alt="place holder black cat on couch" style="width:408px; height:306px" />
+            </div>
+        </div>-->
+    </div>
+
+
+    <!--ANGELA HELP ME-->
+    <div class="overview-section">
+        <img id = "overview-image" src="web-4809584_1920.jpg" style="width: 1920;"/>
+        <h2 id="overview">
+            Skatelligence is an AI powered high-performance training tool for figure skaters.
+            Using IMUs mounted to the skater's body, Skatelligence is able to detect and categorize
+            the jumps they perform, and provide valuable insights into their performance.
+        </h2>
+    </div>
+    
+    <!--slider section-->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="Skatelligence_Full.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="placeHolderCat.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="placeHolderCat.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <!-- Navigation buttons -->
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+
+    <div class="padder"></div>
+
+    <div class="top-triangle"></div>
+    <div id="skatelligenceModel">
+        <h1><i>The Skatelligence Model</i></h1>
+        <div class="roundedRectangle">
+            <div class="rectangle">
+                <img src="Skate icon.png" style="width: 100px; height: 100px"/>
+                <h3 class="model-text">
+                    6-axis IMUs mounted to the skaters torso, wrists, and skates collect and transmit live acceleration and gyroscopic
+                    data to a local server over wifi.
+                </h3>
+            </div>
+            <div class="rectangle">
+                <img id="graph-image" src="Graph-image.png" style="width: 250px; height: 200px"/>
+                <h3 class="model-text" id="graph-text">
+                    The server recieves and processes the data, displaying live graphs and identifying where the 
+                    skater jumped.
+                </h3>
+            </div>
+            <div class="rectangle">
+                <img src="Neural network.png" style="width: 100px; height: 100px"/>
+                <h3 class="model-text">
+                    Using this data, we trained a recurrent neural network to be able to classify these jumps
+                </h3>
+            </div>
+            <div class="rectangle">
+                <img src="Output.png" style="width: 100px; height: 100px"/>
+                <h3 class="model-text">
+                    The neural network classfies new jumps as one of the 6 standard figure skating jumps (Salchow, Toe Loop, Loop, Flip, Lutz, Axel)
+                </h3>
+            </div>
+            <div class="rectangle">
+                <img src="Graphics copy.png" style="width: 200px; height: 110px"/>
+                <h3 class="model-text">
+                    Future versions of Skatelligence will be able to identify the number of rotations
+                    of a jump, generalize well to all skaters, and extract other useful data for training purposes
+                </h3>
+            </div>
+        </div>
+        <script src="script.js"></script> <!--script for animating rectangles one at a time only once in view-->
+    </div>
+    <div class="bottom-triangle"></div>
+    <!--promo demo-->
+    <!--footer navigation and links-->
+    <div class="padder"></div>
+    <div class= "footer">
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="SkatelligenceFullLogoCropped.png" alt="Skatelligence full logo" style="width: 250px; height: 59px" />
+        </a>
+        <ul class="footNav">
+            <li><a href="/whoWeAre.html">Who We Are</a></li>
+            <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
+            <li><a href="/technDetails.html">Technical Details</a></li>
+            <li><a href="/relatedLinks.html">Related Links</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale+1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="relatedStyling.css" />
+    <title>Related Links</title>
+</head>
+<body>
+    <!--Header navigation and links-->
+    <div class="navigation" id="header">
+        <div class ="sidebar">
+            <ul class="nav">
+                <li onclick= hideSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#D9D9D9"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="/whoWeAre.html">Who We Are</a></li>
+                <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
+                <li><a href="/technDetails.html">Technical Details</a></li>
+                <li><a href="/relatedLinks.html">Related Links</a></li>
+            </ul>
+        </div>
+            <a href="https://ayihuang.github.io/">
+                <img id="skatelligenceLogoImg" src="Skatelligence logo black.png" alt="Skatelligence full logo" style="width: 250px; height: 50px" />
+            </a>
+            <ul class="nav">
+                <div class="hideOnMobile">
+                <li ><a href="/whoWeAre.html">Who We Are</a></li>
+                <!--<li ><a href="/Demonstrations.html">Demonstrations</a></li>-->
+                <li ><a href="/technDetails.html">Technical Details</a></li>
+                <li ><a href="/relatedLinks.html">Related Links</a></li>
+                </div>
+                <div class="menu-button">
+                <li  onClick= showSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </div>
+            </ul>
+        </div>
+        
+        <script>
+            function showSidebar(){
+                const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'flex'
+            }
+            function hideSidebar(){
+                 const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'none'
+            }
+        </script>
+    <div class="img-container"></div>
+
+    <div class="head">
+        <img class="head-image" src="relatedLink .png" style="width:400px ;height: 400px"/>
+        <div class="title-text">
+            <h1>Related Links</h1>
+            <ul class="bullets">
+                <li>Explore our latest commits and updates</li>
+                <li>Quick access to the heart of Skatelligence</li>
+                <li>Discover what's next</li>
+            </ul>
+        </div>
+    </div>
+    <!--Skatelligence repo section-->
+    <div class="top-triangle"></div>
+    <div class = "skatelligence-repo">
+        <a href="https://github.com/nsmartinx/Skatelligence"><h2>Skatelligence Repository</h2></a>
+        <div class="quickLinks">
+            <a href="https://github.com/nsmartinx/Skatelligence/tree/main">
+            <div class="link">
+                <div class="flex">
+                    <img class="icon" src="git.png" alt="book" style="width:60px; height:60px" />
+                    <p class="file"><b>Repository</b></p>
+                </div>
+            </div></a>
+            <a href="https://github.com/nsmartinx/Skatelligence/blob/main/README.md" >
+            <div class="link">
+                <div class="flex">
+                    <img class="icon" src="book.png" alt="graph" style="width:60px; height:60px" />
+                    <p class="file"><b>README</b></p>
+                </div>
+            </div></a>
+            <a href="https://github.com/nsmartinx/Skatelligence/tree/main/microcontroller">
+            <div class="link">
+                <div class="flex">
+                    <img class="icon" src="microcontroller.png" alt="graph" style="width:60px; height:60px" />
+                    <p class="file"><b>Microcontroller</b></p>
+                </div>
+            </div></a>
+            <a href="https://github.com/nsmartinx/Skatelligence/tree/main/ai_model">
+            <div class="link">
+                <div class="flex">
+                    <img class="icon" src="identify.png" alt="graph" style="width:60px; height:60px" />
+                    <p class="file"><b>AI Model</b></p>
+                </div>
+            </div></a>
+        </div>
+    </div>
+    <div class="bottom-triangle"></div>
+
+    <!--website repo section-->
+    <div class="padder"></div>
+    <div class="top-triangle-green"></div>
+    <div class = "website-repo">
+        <a href="https://github.com/ayihuang/ayihuang.github.io"><h2>Skatelligence Website Repository</h2></a>
+        <div class="quickLinks">
+            <a href="https://github.com/ayihuang/ayihuang.github.io/blob/main/README.md">
+            <div class="link">
+                <div class="flex">
+                    <img class="icon" src="book.png" alt="book" style="width:60px; height:60px" />
+                    <p class="file"><b>README.md</b></p>
+                </div>
+            </div></a>
+            <a href="https://github.com/ayihuang/ayihuang.github.io/blob/main/index.html" >
+            <div class="link">
+                <div class="flex">
+                    <img class="icon" src="index.png" alt="index" style="width:60px; height:60px" />
+                    <p class="file"><b>index.html</b></p>
+                </div>
+            </div></a>
+             <a href="https://github.com/ayihuang/ayihuang.github.io/blob/main/styles.css"   >
+            <div class="link">
+                <div class="flex">
+                    <img class="icon" src="styles.png" alt="styles" style="width:60px; height:60px" />
+                    <p class="file"><b>styles.css</b></p>
+                </div>
+            </div></a>
+            <a href="https://github.com/ayihuang/ayihuang.github.io/blob/main/script.js">
+            <div class="link">
+                <div class="flex">
+                    <img class="icon" src="script.png" alt="script" style="width:60px; height:60px" />
+                    <p class="file"><b>script.js</b></p>
+                </div>
+            </div></a>
+        </div>
+    </div>
+    <div class="bottom-triangle-green"></div>
+    <script src="relatedScript.js"></script>
+    <!--footer navigation and links-->
+    <div class="padder"></div>
+    <div class="footer">
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="SkatelligenceFullLogoCropped.png" alt="Skatelligence full logo" style="width: 250px; height: 59px" />
+        </a>
+        <ul class="footNav">
+            <li><a href="/whoWeAre.html">Who We Are</a></li>
+            <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
+            <li><a href="/technDetails.html">Technical Details</a></li>
+            <li><a href="/relatedLinks.html">Related Links</a></li>
+        </ul>
+    </div>
+</body>
+</html>
