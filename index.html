@@ -1,147 +1,178 @@
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale+1.0">
-    <title>Skatelligence</title>
-    <link rel="stylesheet" href="styles.css" />
+<!DOCTYPE HTML>
+<!--
+	Hyperbolic by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<title>Untitled</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
 
-</head>
-<body>
-    <!--Header navigation and links-->
-    <div class="navigation" id="header">
-    <div class ="sidebar">
-        <ul class="nav" class = "headNav">
-            <li onclick= hideSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#D9D9D9"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-            <li><a href="/whoWeAre.html">Who We Are</a></li>
-            <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
-            <li><a href="/technDetails.html">Technical Details</a></li>
-            <li><a href="/relatedLinks.html">Related Links</a></li>
-        </ul>
-    </div>
-        <a href="https://ayihuang.github.io/">
-            <img id="skatelligenceLogoImg" src="Skatelligence logo black.png" alt="Skatelligence full logo" style="width: 250px; height: 50px" />
-        </a>
-        <ul class="nav">
-            <div class="hideOnMobile">
-            <li ><a href="/whoWeAre.html">Who We Are</a></li>
-            <!--<li ><a href="/Demonstrations.html">Demonstrations</a></li>-->
-            <li ><a href="/technDetails.html">Technical Details</a></li>
-            <li ><a href="/relatedLinks.html">Related Links</a></li>
-            </div>
-            <div class="menu-button">
-            <li  onClick= showSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
-            </div>
-        </ul>
-    </div>
-    <script>
-        function showSidebar(){
-            const sidebar = document.querySelector('.sidebar')
-            sidebar.style.display = 'flex'
-        }
-        function hideSidebar(){
-             const sidebar = document.querySelector('.sidebar')
-            sidebar.style.display = 'none'
-        }
-    </script>
-    <div class="flex-container">
-        <!--Large text animation-->
-        <div class="container">
-            <span id="text1">Figure Skating Training</span>
-            <span id="text2"><i>Reimagined</i></span>
-        </div>
-        <!--acccompanying media to title text, animation?-->
-        <!--<div class="containerMedia">
-            <div>
-                <img id="titleMedia" src="placeHolderCat.jpg" alt="place holder black cat on couch" style="width:408px; height:306px" />
-            </div>
-        </div>-->
-    </div>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
+				<!-- Header -->
+					<section id="header" class="alt">
 
-    <!--ANGELA HELP ME-->
-    <div class="overview-section">
-        <img id = "overview-image" src="web-4809584_1920.jpg" style="width: 1920;"/>
-        <h2 id="overview">
-            Skatelligence is an AI powered high-performance training tool for figure skaters.
-            Using IMUs mounted to the skater's body, Skatelligence is able to detect and categorize
-            the jumps they perform, and provide valuable insights into their performance.
-        </h2>
-    </div>
-    
-    <!--slider section-->
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide active">
-                <img src="Skatelligence_Full.jpg" alt="Slide 1">
-            </div>
-            <div class="slide">
-                <img src="placeHolderCat.jpg" alt="Slide 2">
-            </div>
-            <div class="slide">
-                <img src="placeHolderCat.jpg" alt="Slide 3">
-            </div>
-        </div>
-        <!-- Navigation buttons -->
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </div>
+						<!-- Logo -->
+							<a href="index.html" class="logo"><strong>Hyperbolic</strong> by Pixelarity</a>
 
-    <div class="padder"></div>
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="current"><a href="index.html">Home</a></li>
+									<li>
+										<a href="#" class="icon solid fa-angle-down">Dropdown</a>
+										<ul>
+											<li><a href="#">Option One</a></li>
+											<li><a href="#">Option Two</a></li>
+											<li><a href="#">Option Three</a></li>
+											<li>
+												<a href="#">Submenu</a>
+												<ul>
+													<li><a href="#">Option One</a></li>
+													<li><a href="#">Option Two</a></li>
+													<li><a href="#">Option Three</a></li>
+													<li><a href="#">Option Four</a></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li><a href="generic.html">Generic</a></li>
+									<li><a href="elements.html">Elements</a></li>
+								</ul>
+							</nav>
 
-    <div class="top-triangle"></div>
-    <div id="skatelligenceModel">
-        <h1><i>The Skatelligence Model</i></h1>
-        <div class="roundedRectangle">
-            <div class="rectangle">
-                <img src="Skate icon.png" style="width: 100px; height: 100px"/>
-                <h3 class="model-text">
-                    6-axis IMUs mounted to the skaters torso, wrists, and skates collect and transmit live acceleration and gyroscopic
-                    data to a local server over wifi.
-                </h3>
-            </div>
-            <div class="rectangle">
-                <img id="graph-image" src="Graph-image.png" style="width: 250px; height: 200px"/>
-                <h3 class="model-text" id="graph-text">
-                    The server recieves and processes the data, displaying live graphs and identifying where the 
-                    skater jumped.
-                </h3>
-            </div>
-            <div class="rectangle">
-                <img src="Neural network.png" style="width: 100px; height: 100px"/>
-                <h3 class="model-text">
-                    Using this data, we trained a recurrent neural network to be able to classify these jumps
-                </h3>
-            </div>
-            <div class="rectangle">
-                <img src="Output.png" style="width: 100px; height: 100px"/>
-                <h3 class="model-text">
-                    The neural network classfies new jumps as one of the 6 standard figure skating jumps (Salchow, Toe Loop, Loop, Flip, Lutz, Axel)
-                </h3>
-            </div>
-            <div class="rectangle">
-                <img src="Graphics copy.png" style="width: 200px; height: 110px"/>
-                <h3 class="model-text">
-                    Future versions of Skatelligence will be able to identify the number of rotations
-                    of a jump, generalize well to all skaters, and extract other useful data for training purposes
-                </h3>
-            </div>
-        </div>
-        <script src="script.js"></script> <!--script for animating rectangles one at a time only once in view-->
-    </div>
-    <div class="bottom-triangle"></div>
-    <!--promo demo-->
-    <!--footer navigation and links-->
-    <div class="padder"></div>
-    <div class= "footer">
-        <a href="https://ayihuang.github.io/">
-            <img id="skatelligenceLogoImg" src="SkatelligenceFullLogoCropped.png" alt="Skatelligence full logo" style="width: 250px; height: 59px" />
-        </a>
-        <ul class="footNav">
-            <li><a href="/whoWeAre.html">Who We Are</a></li>
-            <!--<li><a href="/Demonstrations.html">Demonstrations</a></li>-->
-            <li><a href="/technDetails.html">Technical Details</a></li>
-            <li><a href="/relatedLinks.html">Related Links</a></li>
-        </ul>
-    </div>
-</body>
+					</section>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="content">
+							<header class="major special">
+								<h1>Ipsum dolor eu magna<br />
+								consequat lorem</h1>
+							</header>
+							<ul class="actions special">
+								<li><a href="#first" class="button primary wide scrolly">Get Started</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section class="wrapper style1" id="first">
+						<div class="inner">
+							<header class="major special">
+								<h2>Magna feugiat</h2>
+								<p>Praesent dapibus neque id cursus faucibus consequat<br />
+								magna consequat erat ipsum lorem</p>
+							</header>
+							<div class="spotlights">
+								<section>
+									<div class="image"><img src="images/pic01.jpg" alt="" /></div>
+									<div class="content">
+										<header class="major">
+											<h3>Sed erat aenean</h3>
+										</header>
+										<p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae magna consequat eu erat. Aliquam erat ipsum magna. Aenean ornare velit lacus varius enim ullamcorper proin magna etiam consequat.</p>
+									</div>
+								</section>
+								<section>
+									<div class="image"><img src="images/pic02.jpg" alt="" /></div>
+									<div class="content">
+										<header class="major">
+											<h3>Ipsum eu varius</h3>
+										</header>
+										<p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae magna consequat eu erat. Aliquam erat ipsum magna. Aenean ornare velit lacus varius enim ullamcorper proin magna etiam consequat.</p>
+									</div>
+								</section>
+							</div>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section class="wrapper style2 alt">
+						<div class="inner">
+							<header class="major special">
+								<h2>Dolor feugiat</h2>
+								<p>Praesent dapibus neque id cursus faucibus consequat<br />
+								magna consequat erat ipsum lorem</p>
+							</header>
+							<div class="features">
+								<ul>
+									<li>
+										<span class="icon alt major fa-gem"></span>
+										<h3>Erat lorem</h3>
+										<p>Praesent dapibus neque id faucibus sed neque egestas auguae ipsum dolor.</p>
+									</li>
+									<li>
+										<span class="icon alt major solid fa-laptop"></span>
+										<h3>Tempus nulla</h3>
+										<p>Praesent dapibus neque id faucibus sed neque egestas auguae ipsum dolor.</p>
+									</li>
+								</ul>
+								<span class="image"><img src="images/pic03.jpg" alt="" /></span>
+								<ul>
+									<li>
+										<span class="icon alt major fa-save"></span>
+										<h3>Nisl faucibus</h3>
+										<p>Praesent dapibus neque id faucibus sed neque egestas auguae ipsum dolor.</p>
+									</li>
+									<li>
+										<span class="icon alt major fa-paper-plane"></span>
+										<h3>Magna dolor</h3>
+										<p>Praesent dapibus neque id faucibus sed neque egestas auguae ipsum dolor.</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section class="wrapper style1">
+						<div class="inner">
+							<header class="major special alt">
+								<h2>Nisl consequat</h2>
+								<p>Praesent dapibus neque id cursus faucibus consequat<br />
+								magna consequat erat ipsum lorem</p>
+							</header>
+							<ul class="actions special">
+								<li><a href="#" class="button primary wide">Get Started</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon alt brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon alt brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon alt brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="#" class="icon alt solid fa-phone"><span class="label">Phone</span></a></li>
+						</ul>
+						<p class="copyright">
+							&copy; Untitled. All rights reserved.
+						</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
