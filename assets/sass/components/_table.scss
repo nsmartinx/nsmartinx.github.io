@@ -1,5 +1,5 @@
 ///
-/// Hyperbolic by Pixelarity
+/// Massively by Pixelarity
 /// pixelarity.com | hello@pixelarity.com
 /// License: pixelarity.com/license
 ///
@@ -28,10 +28,18 @@
 		}
 
 		th {
-			font-size: 0.9rem;
-			font-weight: _font(weight-bold);
+			font-family: _font(family-heading);
+			font-size: 0.8rem;
+			font-weight: _font(weight-heading);
+			letter-spacing: 0.075em;
+			line-height: 1.5;
 			padding: 0 0.75rem 0.75rem 0.75rem;
 			text-align: left;
+			text-transform: uppercase;
+
+			@include breakpoint('<=medium') {
+				font-size: 0.9rem;
+			}
 		}
 
 		thead {
