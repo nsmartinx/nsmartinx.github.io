@@ -1,85 +1,88 @@
-/* assets/css/about-me.css */
-
-/* Base Styles for About Me Section */
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  .about-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .about-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-  .about-header p {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  /* Image Gallery */
-  .image-gallery {
+/* Image Gallery */
+.image-gallery {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     margin-bottom: 20px;
   }
+  
+  /* Remove the general margin-left so we can control each image individually */
   .image-gallery img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    margin-left: -40px; /* Causes overlap */
     cursor: pointer;
   }
-  .image-gallery img:first-child {
+  
+  /* Set overlapping and rotation per image */
+  /* Outer left image */
+  .image-gallery img:nth-child(1) {
+    transform: rotate(-10deg);
+    z-index: 1;
     margin-left: 0;
   }
-  /* Initial skew/rotation effects */
-  .image-gallery img:nth-child(1) { transform: rotate(-10deg); }
-  .image-gallery img:nth-child(2) { transform: rotate(8deg); }
-  .image-gallery img:nth-child(3) { transform: rotate(-6deg); }
-  .image-gallery img:nth-child(4) { transform: rotate(5deg); }
-  .image-gallery img:nth-child(5) { transform: rotate(-8deg); }
   
-  /* Hover: straighten and bring image to front */
+  /* Left adjacent image */
+  .image-gallery img:nth-child(2) {
+    transform: rotate(8deg);
+    z-index: 2;
+    margin-left: -40px;
+  }
+  
+  /* Center image */
+  .image-gallery img:nth-child(3) {
+    transform: rotate(-6deg);
+    z-index: 3;
+    margin-left: -40px;
+  }
+  
+  /* Right adjacent image */
+  .image-gallery img:nth-child(4) {
+    transform: rotate(5deg);
+    z-index: 2;
+    margin-left: -40px;
+  }
+  
+  /* Outer right image */
+  .image-gallery img:nth-child(5) {
+    transform: rotate(-8deg);
+    z-index: 1;
+    margin-left: -40px;
+  }
+  
+  /* Hover effect: On hover, each image straightens, scales up slightly, and gets a high z-index */
   .image-gallery img:hover {
     transform: rotate(0deg) scale(1.05);
     z-index: 10;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* About Text */
-  .about-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Button */
-  .about-button {
-    display: block;
-    width: 220px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    background: #007BFF;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-    font-size: 1rem;
-  }
-  .about-button:hover {
-    background: #0056b3;
-  }
-  
+  }  
+
+/* About Text */
+.about-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.about-button {
+  display: block;
+  width: 280px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background: #007BFF;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-size: 1rem;
+}
+.about-button:hover {
+  background: #0056b3;
+}
