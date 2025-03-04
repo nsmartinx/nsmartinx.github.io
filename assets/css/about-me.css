@@ -54,20 +54,31 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Styles for Narrow Screens */
 @media screen and (max-width: 768px) {
-    .image-gallery {
+  .image-gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-    }
-    /* All images get a fixed flex-basis of roughly 33.33% of the container's width,
-       and flex-grow is set to 0 so they don't stretch beyond that */
-    .image-gallery img {
-      flex: 0 1 calc(33.33%);
-    }
+      max-width: 100%;
   }
+
+  .image-gallery img {
+      width: 33.33%;
+      aspect-ratio: 5 / 6;
+      object-fit: cover;
+  }
+
+
+  .image-gallery img:nth-child(4) {
+      margin-left: 0%;
+  }
+
+  .image-gallery img:nth-child(5) {
+      margin-left: 0%;
+  }
+}
+
 
 /* About Text */
 .about-text {
