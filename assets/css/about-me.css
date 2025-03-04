@@ -65,7 +65,7 @@
     /* All images get a fixed flex-basis of roughly 33.33% of the container's width,
        and flex-grow is set to 0 so they don't stretch beyond that */
     .image-gallery img {
-      flex: 0 1 calc(33.33% - 5px);
+      flex: 0 1 calc(33.33%);
     }
   }
 
