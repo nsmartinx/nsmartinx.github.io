@@ -41,13 +41,12 @@ footer, header, hgroup, menu, nav, section {
   }
   
   .footer-content {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	max-width: 800px; /* Adjust as needed */
-	margin: 0 auto;
-	padding-top: 10px;
-  }
+    display: flex;
+    flex-wrap: wrap;  /* Allows wrapping */
+    gap: 20px;        /* Adds spacing */
+    justify-content: center;
+    align-items: flex-start;
+}
   
   /* Socials Section */
   .socials {
@@ -75,11 +74,11 @@ footer, header, hgroup, menu, nav, section {
 	font-size: 2rem !important; /* Increase icon size */
   }
   
-  /* Resume Section */
   .resume-container {
-	flex: 1;
-	text-align: center;
-  }
+    flex: 1;         /* Each takes equal space */
+    min-width: 250px; /* Prevents squishing */
+    text-align: center;
+}
   
   .resume-container h3 {
 	margin-bottom: 10px;
