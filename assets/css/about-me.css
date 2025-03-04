@@ -1,65 +1,73 @@
-/* Image Gallery */
+/* Desktop Styles (Default Overlapping Layout) */
 .image-gallery {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     margin-bottom: 20px;
-  }
-  
-  /* Remove the general margin-left so we can control each image individually */
-  .image-gallery img {
-    width: 250px;
-    height: 250px;
+}
+
+.image-gallery img {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 5 / 6;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     cursor: pointer;
-  }
-  
-  /* Set overlapping and rotation per image */
-  /* Outer left image */
-  .image-gallery img:nth-child(1) {
+}
+
+/* Overlapping and rotation for desktop */
+.image-gallery img:nth-child(1) {
     transform: rotate(-10deg);
     z-index: 1;
-    margin-left: 0;
-  }
-  
-  /* Left adjacent image */
-  .image-gallery img:nth-child(2) {
+}
+
+.image-gallery img:nth-child(2) {
     transform: rotate(8deg);
     z-index: 2;
     margin-left: -40px;
-  }
-  
-  /* Center image */
-  .image-gallery img:nth-child(3) {
+}
+
+.image-gallery img:nth-child(3) {
     transform: rotate(-6deg);
     z-index: 3;
     margin-left: -40px;
-  }
-  
-  /* Right adjacent image */
-  .image-gallery img:nth-child(4) {
+}
+
+.image-gallery img:nth-child(4) {
     transform: rotate(5deg);
     z-index: 2;
     margin-left: -40px;
-  }
-  
-  /* Outer right image */
-  .image-gallery img:nth-child(5) {
+}
+
+.image-gallery img:nth-child(5) {
     transform: rotate(-8deg);
     z-index: 1;
     margin-left: -40px;
-  }
-  
-  /* Hover effect: On hover, each image straightens, scales up slightly, and gets a high z-index */
-  .image-gallery img:hover {
+}
+
+.image-gallery img:hover {
     transform: rotate(0deg) scale(1.05);
     z-index: 10;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }  
+}
+
+/* Responsive Styles for Narrow Screens */
+@media screen and (max-width: 768px) {
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    /* All images get a fixed flex-basis of roughly 33.33% of the container's width,
+       and flex-grow is set to 0 so they don't stretch beyond that */
+    .image-gallery img {
+      flex: 0 1 calc(33.33% - 5px);
+    }
+  }
 
 /* About Text */
 .about-text {
