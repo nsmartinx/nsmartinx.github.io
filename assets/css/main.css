@@ -3303,7 +3303,7 @@ input, select, textarea {
     overflow: hidden;
 }
 
-#wrapper > .bg {
+.bg {
     position: fixed;  /* Changed from absolute to fixed */
     top: 0;
     left: 0;
