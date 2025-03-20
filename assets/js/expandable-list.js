@@ -4,33 +4,29 @@ document.addEventListener("DOMContentLoaded", function() {
       {
         title: "Skatelligence",
         description: "AI Powered Figure Skating Analysis",
-        img: "images/personal_image_0.jpg",
-        ctaText: "More",
+        img: "images/SkatelligenceLogo.png",
+        ctaText: "More Info",
         ctaLink: "skatelligence.html",
         extra: "lorem ipsum"
       },
       {
-        title: "3x3x3 Rubik's Cube Solving Robot",
-        description: "lorem ipsum",
-        img: "images/personal_image_0.jpg",
-        ctaText: "More",
+        title: "Rubik's Cube Robot",
+        description: "Custom built 3x3x3 Rubik's Cube Solver",
+        img: "images/rubikscube.png",
+        ctaText: "More Info",
         ctaLink: "rubikscube.html",
         extra: "lorem ipsum"
       },
       {
         title: "Refashion",
         description: "Wardrobe Organizing Smart Mirror",
-        img: "images/personal_image_0.jpg",
-        ctaText: "More",
-        ctaLink: "skatelligence.html",
+        img: "images/refashion.png",
         extra: "lorem ipsum"
       },
       {
         title: "Gravotron",
-        description: "lorem ipsum",
-        img: "images/personal_image_0.jpg",
-        ctaText: "More",
-        ctaLink: "skatelligence.html",
+        description: "Gravity Flipping 3D Platformer",
+        img: "images/gravotron.png",
         extra: "lorem ipsum"
       },
     ];
@@ -45,23 +41,32 @@ document.addEventListener("DOMContentLoaded", function() {
     ul.className = "expandable-list";
   
     // Create and append each list item
-    entries.forEach(entry => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <div class="item-header">
-            <img src="${entry.img}" alt="${entry.title}">
-            <div class="item-info">
-              <div class="item-title">${entry.title}</div>
-              <div class="item-description"><em>${entry.description}</em></div>
-            </div>
-            <a class="item-button" href="${entry.ctaLink}" target="_blank">${entry.ctaText}</a>
-          </div>
-          <div class="item-extra">
-            <p>${entry.extra}</p>
-          </div>
+    entries.forEach((entry, index) => {
+      const li = document.createElement("li");
+      // Only include the button if the entry is not one of the last two
+      let buttonHTML = "";
+      if (index < entries.length - 2) {
+        buttonHTML = `
+          <ul class="actions" style="display: flex; justify-content: center;">
+            <li><a href="${entry.ctaLink}" target="_blank" class="button primary">${entry.ctaText}</a></li>
+          </ul>
         `;
-        ul.appendChild(li);
-      });
+      }
+      li.innerHTML = `
+        <div class="item-header">
+          <img src="${entry.img}" alt="${entry.title}">
+          <div class="item-info">
+            <div class="item-title">${entry.title}</div>
+            <div class="item-description"><em>${entry.description}</em></div>
+          </div>
+          ${buttonHTML}
+        </div>
+        <div class="item-extra">
+          <p>${entry.extra}</p>
+        </div>
+      `;
+      ul.appendChild(li);
+    });
       
       
   

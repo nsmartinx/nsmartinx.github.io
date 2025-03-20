@@ -123,6 +123,41 @@
 	// Background.
 		$wrapper._parallax(0.925);
 
+		var $bgOverlay = $('<div id="bgOverlay"></div>');
+		$bgOverlay.css({
+			position: 'absolute',
+			top: 0,
+			left: 0,
+			width: '100%',
+			height: '100%',
+			backgroundColor: 'black',
+			pointerEvents: 'none', // Let clicks pass through.
+			opacity: 0,            // Start transparent.
+			zIndex: -0.5           // Layer between the background and content.
+		});
+		$wrapper.append($bgOverlay);
+	
+		var maxOpacity = 0.4; // 30% darkening.
+	
+		// If the main page exists (i.e. the "Continue" button is present)
+		if ($('.actions a.scrolly').length > 0 && $('#header').length > 0) {
+	
+			// Use the top offset of the target element (#header) as the fade distance.
+			var fadeDistance = $('#header').offset().top;
+	
+			// Update overlay opacity based on scroll position.
+			$(window).on('scroll', function() {
+				var scrollY = $(window).scrollTop();
+				var opacity = Math.min(scrollY / fadeDistance, 1) * maxOpacity;
+				$bgOverlay.css('opacity', opacity);
+			});
+		}
+		else {
+			// On other pages (or if the top section doesn't exist),
+			// set the overlay to always be at max darkening.
+			$bgOverlay.css('opacity', maxOpacity);
+		}
+
 	// Nav Panel.
 
 		// Toggle.

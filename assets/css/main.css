@@ -46,33 +46,48 @@ footer, header, hgroup, menu, nav, section {
     gap: 20px;        /* Adds spacing */
     justify-content: center;
     align-items: flex-start;
+	max-width: 800px;
+	margin: 0 auto;
 }
   
   /* Socials Section */
   .socials {
 	flex: 1;
-	text-align: center;  /* Center header and icons */
+	text-align: center;  /* This keeps the title centered */
   }
   
   .socials h3 {
 	margin-bottom: 10px;
   }
   
+  /* Create a fixed-width box for the icons that is centered */
   .socials .icons {
 	list-style: none;
 	padding: 0;
-	margin: 20px;
+	margin: 20px auto;       /* auto left/right centers the box */
+	max-width: 350px;        /* set the fixed width of the box */
 	display: flex;
-	justify-content: center;
+	flex-direction: column;  /* Stack items vertically */
+	gap: 10px;               /* Space between each social item */
+	text-align: left;        /* Left-align the content inside the box */
   }
   
   .socials .icons li {
-	margin: 0 15px;
+	display: flex;
+	align-items: center;     /* Vertically centers icon and text */
+  }
+  
+  .socials .icons li a {
+	display: inline-flex;
+	align-items: center;     /* Ensure the pseudo-element and text are centered */
+	width: 100%;
   }
   
   .socials .icons li a::before {
-	font-size: 2rem !important; /* Increase icon size */
+	font-size: 2rem !important;
+	margin-right: 20px;      /* Increase gap between the icon and the text */
   }
+  
   
   .resume-container {
     flex: 1;         /* Each takes equal space */
@@ -3295,8 +3310,10 @@ input, select, textarea {
 			width: 100%;
 			height: 100%;
 			background-color: #212931;
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpg");
-			background-size: auto,								auto,														100% auto;
+			background-image: url("../../images/overlay.png"), 
+                    linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
+                    url("../../images/background.jpg");
+			background-size: auto,								auto,														cover;
 			background-position: center,								center,														top center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
 			background-attachment: scroll,								scroll,														scroll;
@@ -3332,14 +3349,6 @@ input, select, textarea {
 
 		body.is-preload #wrapper.fade-in:before {
 			opacity: 1;
-		}
-
-		@media screen and (orientation: portrait) {
-
-			#wrapper > .bg {
-				background-size: auto,								auto,														auto 175%;
-			}
-
 		}
 
 /* Intro */

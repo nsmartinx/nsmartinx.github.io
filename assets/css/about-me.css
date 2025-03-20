@@ -50,7 +50,6 @@
 
 .image-gallery img:hover {
     transform: rotate(0deg) scale(1.05);
-    z-index: 10;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 

@@ -1,67 +1,89 @@
+/* Expandable List Styles */
 .expandable-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-  }
-  
-  .expandable-list li {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .expandable-list li:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .expandable-list .item-header {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .expandable-list .item-header img {
-    width: 100px;
-    height: 100px;
-    border-radius: 2px;
-    object-fit: cover;
-    margin-right: 10px;
-  }
-  
-  .expandable-list .item-header .item-title {
-    flex-grow: 1;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  .expandable-list .item-header .item-button {
-    background: #007BFF;
-    color: #fff;
-    padding: 5px 10px;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-  }
-  
-  .expandable-list .item-extra {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 10px;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-  }
-  
-  .expandable-list li:hover .item-extra {
-    max-height: 200px; /* Adjust as needed */
-    padding: 10px;
-  }
-  .expandable-list .item-header .item-info {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-  
-  
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.expandable-list li {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.expandable-list li:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Item Header */
+.expandable-list .item-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Image */
+.expandable-list .item-header img {
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* shows full image while preserving aspect ratio */
+  display: block;
+  margin-right: 30px;
+  border-radius: 2px;
+}
+
+/* Special background for Skatelligence logo */
+.expandable-list .item-header img[src="images/SkatelligenceLogo.png"] {
+  background-color: #212931;
+}
+
+/* Item Info */
+.expandable-list .item-header .item-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.expandable-list .item-header .item-title {
+  font-size: 1rem;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+/* Extra content (expandable) */
+.expandable-list .item-extra {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.expandable-list li:hover .item-extra {
+  max-height: 200px; /* Adjust as needed */
+  padding: 10px;
+}
+
+/* Override Actions Container Styling */
+.expandable-list .actions {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+.expandable-list .actions li {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
