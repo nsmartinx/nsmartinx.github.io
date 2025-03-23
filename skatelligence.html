@@ -40,9 +40,7 @@
           <header class="major">
             <h1>Skatelligence</h1>
             <p>
-              Basic short description: Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-              facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-              amet nullam sed etiam veroeros.
+				Skatelligence is a wearable sensor and analytics system designed to bring data-driven insights to the world of figure skating. This project combines hardware engineering, embedded systems, and AI-based data processing to detect and classify jumps.
             </p>
           </header>
           
@@ -50,10 +48,10 @@
           <div class="text-image-section">
             <div class="text">
               <p>
-                Overview, Comparison of V1/V2, website will focus on V2 Read below for more in depth explanation. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum.
+                Skatelligence began with a simple goal: to bring high-resolution motion tracking and jump classification to figure skating through wearable technology. The first prototype, V1, served as a proof of concept and laid the foundation for further development. Building on its success, Skatelligence V2 introduced several key improvements, including a fully integrated battery and battery management system (BMS), a custom-designed PCB, and a switch from Wi-Fi to Bluetooth (BLE) for more reliable wireless communication. The remainder of this page will focus exclusively on the technical details and functionality of Skatelligence V2.
               </p>
             </div>
-            <div class="image">
+            <div class="image" style="margin: 1.5rem; max-width: 400px;">
               <img src="images/Skatelligence_logo_icon.png" alt="Lorem ipsum image" />
             </div>
           </div>
@@ -74,10 +72,10 @@
                 <div class="text-image-section">
                   <div class="text">
                     <p>
-                      Physical Structure. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus euismod, lorem eget dapibus porttitor, lorem libero imperdiet libero, et consectetur arcu justo in nunc.
+						The mechanical design of Skatelligence V2 centers around a central module housed in a custom 3D-printed enclosure. This enclosure contains the core components of the system, including the custom PCB, battery/BMS, and one IMU. The housing is mounted to the skater's lower back using velcro straps, and is designed shell is designed for durability and wearability, with accessible ports for charging the internal battery and reflashing the microcontroller when needed. Four JST connectors are contained in the central housing, providing wired connections to the external sensor modules—two mounted on the skater's wrists and two on the skates.
                     </p>
                   </div>
-                  <div class="image">
+                  <div class="image" style="margin: 1.5rem; max-width: 400px;">
                     <img src="images/Skatelligence_logo_icon.png" alt="Mechanical Image">
                   </div>
                 </div>
@@ -88,10 +86,10 @@
                 <div class="text-image-section">
                   <div class="text">
                     <p>
-                      pcb. electrical schematic, power delivery. Donec ac odio at massa pharetra efficitur. Quisque consequat, purus non tristique bibendum, massa lacus scelerisque odio, vitae laoreet libero lacus vel augue. Suspendisse potenti. Aliquam erat volutpat.
+						The electrical system of Skatelligence V2 is centered around a custom-designed PCB featuring an STM32 microcontroller. This microcontroller communicates with five MPU6050 IMUs using I2C, routed through a TCA9548A I2C multiplexer due to the limited I2C channels on the microcontroller. Power is supplied by a 1S lithium-ion battery, housed within the central module. To meet the voltage requirements of the system, the battery output is boosted to 5V before being delivered to the microcontroller, which steps it back down to 3.3v to power the other components. Charging is handled by an onboard TP4056 module, which provides safe and efficient battery management. This configuration enables a compact yet robust electrical setup, supporting reliable operation throughout extended skating sessions.
                     </p>
                   </div>
-                  <div class="image">
+                  <div class="image" style="margin: 1.5rem; max-width: 400px;">
                     <img src="images/Skatelligence_logo_icon.png" alt="Electrical Image">
                   </div>
                 </div>
@@ -107,10 +105,11 @@
                 <div class="text-image-section">
                   <div class="text">
                     <p>
-                      Data Collection / Transmission. Physical Structure. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus euismod, lorem eget dapibus porttitor, lorem libero imperdiet libero, et consectetur arcu justo in nunc.
+						The embedded system on Skatelligence V2 is built around an STM32 microcontroller and programmed using FreeRTOS to manage concurrent tasks. The firmware is responsible for initializing communication with the IMUs, establishing BLE or communication, and handling real-time sensor data collection, storage, and transmission. During operation, the system polls five MPU6050 IMUs. Sensor data is collected at a frequency of 100 Hz, with each reading capturing three axes of linear acceleration and three axes of angular velocity per sensor. These readings are stored as 16-bit integers and written to internal card in 6KB binary files, capturing 1 second of recording. FreeRTOS allows for multithreading, enabling the system to record and transmit data simultaneously. One core is dedicated to collecting and storing IMU readings in real-time, while a second core runs handles the asynchronous data transmission over BLE to a local server. If no connection is available, files continue to be stored locally and are uploaded once connectivity is restored.
+						
                     </p>
                   </div>
-                  <div class="image">
+                  <div class="image" style="margin: 1.5rem; max-width: 400px;">
                     <img src="images/Skatelligence_logo_icon.png" alt="Embedded Image">
                   </div>
                 </div>
@@ -121,10 +120,16 @@
                 <div class="text-image-section">
                   <div class="text">
                     <p>
-                      Data storage format, filtering/manual jump detection, displaying data. Donec ac odio at massa pharetra efficitur. Quisque consequat, purus non tristique bibendum, massa lacus scelerisque odio, vitae laoreet libero lacus vel augue. Suspendisse potenti. Aliquam erat volutpat.
+						The data processing pipeline in Skatelligence V2 transforms raw IMU readings into clean, interpretable data that can be used for analysis and jump classification. After the embedded system logs IMU data as binary files, these files are passed through a multi-step processing routine.
+
+						The first step involves reading and scaling the raw binary data to physical units—acceleration in Gs and angular velocity in degrees per second. Once scaled, a sixth-order Butterworth low-pass filter is applied to each data stream to remove high-frequency noise and produce smoother signals for analysis. This filtering ensures that only meaningful motion patterns are retained, which is critical for reliable jump detection.
+						
+						The filtered data is then visualized using a custom-built PyQt-based GUI. The interface supports both raw and processed data views, displaying all six measurement axes (3 acceleration + 3 gyroscopic) for each of the five sensors. Users can scroll through data files, track the latest recordings in real time, and select and examine detected jumps.
+						
+						Jump detection is performed using a state-machine approach on the torso's vertical acceleration signal. The system identifies a jump when it detects a sequence consisting of a takeoff phase (acceleration spike), an air phase (acceleration drop), and a landing phase (second spike). Additional criteria, such as a minimum airtime, sufficient rotational motion, and a vertical force peak from one of the skate-mounted IMUs, are used to validate the jump. Once identified, a jump is extracted as a fixed-length sequence of readings and saved as an individual binary file for further analysis or classification.
                     </p>
                   </div>
-                  <div class="image">
+                  <div class="image" style="margin: 1.5rem; max-width: 400px;">
                     <img src="images/Skatelligence_logo_icon.png" alt="Data Processing Image">
                   </div>
                 </div>
@@ -135,10 +140,14 @@
                 <div class="text-image-section">
                   <div class="text">
                     <p>
-                      Structure of AI model, training, GAN, accuracy. Donec ac odio at massa pharetra efficitur. Quisque consequat, purus non tristique bibendum, massa lacus scelerisque odio, vitae laoreet libero lacus vel augue. Suspendisse potenti. Aliquam erat volutpat.
+						The AI component of Skatelligence focuses on classifying figure skating jumps using the processed data from the previous step. Due to the logistical limitations of collecting extensive, high-quality data, we first augmented our  dataset through synthetic data generation. We first introduced additional variability to the data was by shifting and adding noise to it. We further generated synthetic data using a Generative Adversarial Network (GAN). The GAN was trained to produce realistic IMU data for six jump types we classified - single Axel, Flip, Loop, Lutz, Salchow, and Toe Loop - based on manually labeled examples.
+
+						The classification model itself is a multi-layer Recurrent Neural Network (RNN) using Long Short-Term Memory (LSTM) units. The network consists of four stacked LSTM layers followed by a fully connected layer that outputs a jump classification across six categories. Each input to the model is a 150x30 matrix, representing 150 time steps of data from all six axes of five sensors.
+						
+						After training on both real and synthetic data, the model achieved an accuracy of approximately 80% on a held-out validation set. As the dataset continues to grow, especially with more examples from different skaters and more types of jumps, we expect to further improve both the model's performance and its ability to generalize across styles and athletes.
                     </p>
                   </div>
-                  <div class="image">
+                  <div class="image" style="margin: 1.5rem; max-width: 400px;">
                     <img src="images/Skatelligence_logo_icon.png" alt="AI Image">
                   </div>
                 </div>

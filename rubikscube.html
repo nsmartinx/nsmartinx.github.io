@@ -40,9 +40,7 @@
           <header class="major">
             <h1>3x3x3 Rubik's Cube Solving Robot</h1>
             <p>
-              Basic short description: Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-              facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-              amet nullam sed etiam veroeros.
+				A custom-built robot designed to autonomously solve a standard 3x3x3 Rubik's Cube.
             </p>
           </header>
           
@@ -50,7 +48,7 @@
           <div class="text-image-section">
             <div class="text">
               <p>
-                Overview, mention all the parts and that I did all of them on my own. Read below for more in depth explanation. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum.
+                This project involved the end-to-end design and development of a fully autonomous 3x3x3 Rubik's Cube solving robot. Every component—from the mechanical structure and electronics to the software and solving logic—was built entirely from scratch. The system integrates custom-designed servo-actuated arms to manipulate the cube, a vision pipeline to detect and interpret cube state via a camera, and a solving algorithm tailored to execute moves efficiently in the real world. Read below for a more in-depth breakdown of the mechanical, electrical, and software components that brought this project to life.
               </p>
             </div>
             <div class="image">
@@ -60,7 +58,7 @@
           
           <!-- Video Intro (moved below the text/image section) -->
           <div class="video-intro">
-            <p>Watch this video to see it in action: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Watch this video to see it in action:</p>
             <div class="video-container">
               <!-- Replace VIDEO_ID with your desired YouTube video ID -->
               <iframe width="560" height="315" src="https://www.youtube.com/embed/hOgavbn_adQ?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -83,7 +81,7 @@
                 <div class="text-image-section">
                   <div class="text">
                     <p>
-                      Physical robot (3D modelling/printing) - rack/pinion, claws. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus euismod, lorem eget dapibus porttitor, lorem libero imperdiet libero, et consectetur arcu justo in nunc.
+						The physical structure of the robot was designed entirely in Fusion 360 and is entirely 3D printed, with the excpetion of some nuts and bolts. The system uses a rack-and-pinion mechanism driven by servo motors to actuate four claw-like arms, each capable of gripping and rotating one face of the Rubik's Cube, or moved in unison to rotate the entire cube. The mechanical design focuses on maximizing reliability, without requireing any modifications to the cube.
                     </p>
                   </div>
                   <div class="image">
@@ -97,7 +95,7 @@
                 <div class="text-image-section">
                   <div class="text">
                     <p>
-                      Servos/robotic control (mini maestro) - connection to camera/computer. Donec ac odio at massa pharetra efficitur. Quisque consequat, purus non tristique bibendum, massa lacus scelerisque odio, vitae laoreet libero lacus vel augue. Suspendisse potenti. Aliquam erat volutpat.
+						Eight servo motors are used to control the movement of the claws, four responsible for moving each claw in/out, and 4 for the rotation of the claws themsleves. Each of the servos are controlled via a Pololu Mini Maestro servo controller, which interfaces directly with the computer over USB, allowing precise command of servo positions through custom control scripts. A USB camera, also connected to the computer, provides real-time visual input for the cube state detection, and it is all powered by an external power supply.
                     </p>
                   </div>
                   <div class="image">
@@ -111,14 +109,18 @@
             <div id="software-content" class="toggle-content" style="display: none;">
               <h2 style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">Software</h2>
               <section>
+				<hr>
                 <h3>Algorithm</h3>
-                <!-- Split into seven parts -->
                 <section>
                   <div class="text-image-section">
                     <div class="text">
-                      <h4>Algorithm Part 1</h4>
+                      <h4>Background Information</h4>
                       <p>
-                        Background on the structure of the cube. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        The external part of the Rubik's Cube is composed of 26 discrete pieces: 8 corner pieces (each with 3 visible faces), 12 edge pieces (2 faces), and 6 fixed center pieces (1 face each). These components are mounted around a central core mechanism that allows for independent rotation of each face layer. While edge and corner pieces move between positions, the centers remain fixed relative to one another and define the cube's reference orientation.
+
+						Standard cube notation is used to describe face rotations and whole-cube manipulations. The six faces are denoted as U (up), D (down), L (left), R (right), F (front), and B (back). A single letter indicates a 90° clockwise rotation of that face; an apostrophe (') denotes a 90° counterclockwise rotation (e.g., R'), and a 2 signifies a 180° rotation (e.g., U2). Full-cube rotations are represented by X, Y, and Z (and X', X2 etc), corresponding to rotations around the right, up, and front-facing axes, respectively.
+
+						The goal of our algorithm is to take as input, the current state of the cube - the position/orientation of the 20 corner/edge pieces and the orientation of the cube as a whole - and output a sequence of moves that restores the cube to it's solved state. The most popular speedcubing method - CFOP, is an option we could implement, but it is designed around being effecient for humans, and thus is less able to take advantage of the strengths of modern computers. There are many effient algorithms already developed (most notably Kociemba's), but we will develop our own, based on the common block-building strategy using in Fewest Move Competitions.
                       </p>
                     </div>
                     <div class="image">
@@ -129,9 +131,17 @@
                 <section>
                   <div class="text-image-section">
                     <div class="text">
-                      <h4>Algorithm Part 2</h4>
+                      <h4>Step 1: Blockbuilding</h4>
                       <p>
-                        Representation in software. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+                        The foundation of this algorithm is gradually building up bigger and bigger "blocks" of the cube. For a human, we can learn to recognize patterns and use largely our intuition to make these blocks, but due to the large computational power of a computer we can brute force a lot of these checks. From a given cube position, a reasonably powerful computer can explore all possible cube states that can be achieved in 8 moves from the current cube position (with some added intelligence to discard irrelavent paths). Thus, if we can split a cube up into steps no longer than 8 moves, we can have the computer find the most optimal sequence of moves for each of these steps.
+
+						The computer begins by trying to build a 2x2x2 block, This will usually take around 5 moves, but may take up to 7 for particularly unlucky scrambles.
+
+						The computer then extends this block to a 2x2x3 block, again, this will usually take aorund 5-6 moves, but no worse than 8.
+
+						Finally, the block is extended to what is commonly called F2L-1 (for reasons that will be explained in Step 2), which is also no worse than 8 moves.
+
+						It should be noted that the above numbers were gathered from a monte-carlo simulation, so it is possible that some exceedingly rare scrambles may take more than 8 moves. Even if it took 9-10 moves, the algorithm would still work within several minutes.
                       </p>
                     </div>
                     <div class="image">
@@ -142,9 +152,11 @@
                 <section>
                   <div class="text-image-section">
                     <div class="text">
-                      <h4>Algorithm Part 3</h4>
+                      <h4>Step 2: F2L</h4>
                       <p>
-                        Cubes not faces. Vivamus euismod, lorem eget dapibus porttitor.
+                        First 2 layers, or F2L for short, is the second step of the common CFOP algorithm. Thinking of the cube in terms of 3 layers, this state is where 2 of these layers are solved, and just one of the outer ones remains. From the block-building stage, we are left with a cube that almost has the first two layers solved, but is missing one corner-edge pair (thus F2L minus one). If you include rotations of the last layer as the same state, there are 42 possible positions/orientations these last two pieces could be in. The computer knows the most effecient algorithm for each of these cases, and simply applies the correct one.
+
+						The longest of these algorithms in 11 moves long, and thus this step takes no more than 12 moves (because of the potential rotation of the top face)
                       </p>
                     </div>
                     <div class="image">
@@ -155,9 +167,11 @@
                 <section>
                   <div class="text-image-section">
                     <div class="text">
-                      <h4>Algorithm Part 4</h4>
+                      <h4>Step 3: Last layer</h4>
                       <p>
-                        Move notation. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Finally, the last layer of the cube is solved. Although humans typically split this step into 2, having 57 and 21 cases each (resulting in "only" 78 algorithms needing memorization), a computer is extremely good at "remembering" all these algorithms. As such, the computer has a database of the most effecient algorithm for all 15,552 cases, and simplies applies the correct one to solve the cube. In the worst case, this step takes 16 moves.
+
+						In the worst possible case, Step 1 takes 23 moves, step 2 takes 12 moves, and step 3 takes 17 moves, resulting in no more than 52 moves to solve the cube. In practice however, espeically due to extra optimizations, it typically takes under 40 moves to solve a cube with this algorithm.
                       </p>
                     </div>
                     <div class="image">
@@ -165,53 +179,15 @@
                     </div>
                   </div>
                 </section>
-                <section>
-                  <div class="text-image-section">
-                    <div class="text">
-                      <h4>Algorithm Part 5</h4>
-                      <p>
-                        Known algorithms. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus euismod.
-                      </p>
-                    </div>
-                    <div class="image">
-                      <img src="images/rubikscube.png" alt="Algorithm Image">
-                    </div>
-                  </div>
-                </section>
-                <section>
-                  <div class="text-image-section">
-                    <div class="text">
-                      <h4>Algorithm Part 6</h4>
-                      <p>
-                        2x2x1, 2x2x2, 2x2x3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                    <div class="image">
-                      <img src="images/rubikscube.png" alt="Algorithm Image">
-                    </div>
-                  </div>
-                </section>
-                <section>
-                  <div class="text-image-section">
-                    <div class="text">
-                      <h4>Algorithm Part 7</h4>
-                      <p>
-                        F2L-1 (must break previous) - f2l, ll. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                    <div class="image">
-                      <img src="images/rubikscube.png" alt="Algorithm Image">
-                    </div>
-                  </div>
-                </section>
-              </section>
               <hr>
               <section>
                 <h3>Computer Vision</h3>
                 <div class="text-image-section">
                   <div class="text">
                     <p>
-                      Image recognition. Donec ac odio at massa pharetra efficitur. Quisque consequat, purus non tristique bibendum, massa lacus scelerisque odio, vitae laoreet libero lacus vel augue. Suspendisse potenti. Aliquam erat volutpat.
+						The computer vision system is built using the AForge.NET framework and is responsible for detecting the colors of the Rubik's Cube's faces. Since the camera remains stationary and the cube is always presented in a known orientation, the algorithm is simplified by predefining the pixel coordinates of the nine visible tiles.
+
+						For each tile, the system samples a small region and calculates the average RGB value, discarding outliers to reduce the effect of glare or lighting inconsistencies. These averaged values are then matched to the closest predefined cube color using a nearest-neighbor approach in color space. This method provides reliable color recognition with minimal computational overhead, enabling fast and consistent face scanning before solving begins.
                     </p>
                   </div>
                   <div class="image">
