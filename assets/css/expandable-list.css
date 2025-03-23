@@ -39,7 +39,7 @@
 }
 
 /* Special background for Skatelligence logo */
-.expandable-list .item-header img[src="images/SkatelligenceLogo.png"] {
+.expandable-list .item-header img[src="images/Skatelligence_logo_icon.png"] {
   background-color: #212931;
 }
 
@@ -86,4 +86,47 @@
   box-shadow: none;
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 600px) {
+  /* Change header layout to column */
+  .expandable-list .item-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Reorder image to come after the title */
+  .expandable-list .item-header img {
+    order: 2;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  /* Flatten the info container so title and description can be ordered separately */
+  .expandable-list .item-info {
+    display: contents;
+  }
+  
+  /* Place title at the top */
+  .expandable-list .item-title {
+    order: 1;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Place description after the image */
+  .expandable-list .item-description {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Place the button last (if it exists) */
+  .expandable-list .actions {
+    order: 4;
+    width: 100%;
+    text-align: center;
+  }
 }

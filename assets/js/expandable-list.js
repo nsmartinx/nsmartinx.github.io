@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
       {
         title: "Skatelligence",
         description: "AI Powered Figure Skating Analysis",
-        img: "images/SkatelligenceLogo.png",
+        img: "images/Skatelligence_logo_icon.png",
         ctaText: "More Info",
         ctaLink: "skatelligence.html",
         extra: "lorem ipsum"
