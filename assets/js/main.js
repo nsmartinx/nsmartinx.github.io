@@ -290,4 +290,19 @@ if ($('.actions a.scrolly').length > 0 && $('#header').length > 0) {
 
 		}
 
+	// Toggle Section for Hardware/Software.
+	// If the #toggle-section exists, attach click handlers for the buttons.
+	if ($('#toggle-section').length > 0) {
+		$('#hardware-btn').on('click', function(e){
+		  e.preventDefault();
+		  $('#hardware-content').show();
+		  $('#software-content').hide();
+		});
+		$('#software-btn').on('click', function(e){
+		  e.preventDefault();
+		  $('#hardware-content').hide();
+		  $('#software-content').show();
+		});
+	}
+
 })(jQuery);

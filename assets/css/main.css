@@ -4751,4 +4751,113 @@ body.is-preload #wrapper.fade-in:before {
 
 	}
 
-	
+	/* Video Intro Section */
+.video-intro {
+	margin-bottom: 2rem;
+	text-align: center;
+  }
+  
+  .video-intro p {
+	margin-bottom: 1rem;
+	font-size: 1rem;
+	color: inherit;
+  }
+  
+  /* Responsive Embedded Video */
+  .video-container {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+  }
+  
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  }
+  
+  /* Text and Image Side-by-Side Section */
+  .text-image-section {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-bottom: 2rem;
+  }
+  
+  /* Text block */
+  .text-image-section .text {
+	flex: 1 1 60%;
+	padding-right: 1rem;
+  }
+  
+  /* Image block */
+  .text-image-section .image {
+	flex: 1 1 35%;
+  }
+  
+  .text-image-section .image img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 736px) {
+	.text-image-section {
+	  flex-direction: column;
+	}
+	.text-image-section .text,
+	.text-image-section .image {
+	  flex: 1 1 100%;
+	  padding-right: 0;
+	  margin-bottom: 1rem;
+	}
+  }
+/* Toggle Section Container */
+#toggle-section {
+	margin: 3rem -50px; /* removes 50px of the side margin on each side */
+	padding: 2rem;
+	border: 1px solid #eeeeee;
+	background: #f9f9f9;
+  }
+  @media screen and (max-width: 800px) {
+	#toggle-section {
+	  margin: 3rem  -20px;
+	}
+  }
+  
+  
+  /* Container for the toggle buttons */
+  .toggle-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 1rem; /* Space between buttons */
+	flex-wrap: wrap;
+	margin-bottom: 1rem;
+  }
+  
+  .toggle-buttons a {
+	display: flex;
+	align-items: center;    /* Vertically centers the text */
+	justify-content: center; /* Horizontally centers the text */
+	flex: 1;
+	text-align: center;
+	padding: 0.75rem 1rem;
+  }
+  
+  /* On small screens, stack the buttons vertically */
+  @media screen and (max-width: 736px) {
+	.toggle-buttons {
+	  flex-direction: column;
+	}
+	.toggle-buttons a {
+	  width: 100%;
+	}
+  }
+  
