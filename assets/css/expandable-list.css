@@ -56,17 +56,11 @@
   flex-grow: 1;
 }
 
-/* Extra content (expandable) */
 .expandable-list .item-extra {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 10px;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.expandable-list li:hover .item-extra {
-  max-height: 200px; /* Adjust as needed */
-  padding: 10px;
+  max-height: none;      /* Always allow full height */
+  overflow: visible;     /* No clipping */
+  padding: 10px;         /* Always display with desired padding */
+  transition: none;      /* Remove animation */
 }
 
 /* Override Actions Container Styling */
