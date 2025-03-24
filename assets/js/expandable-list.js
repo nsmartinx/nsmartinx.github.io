@@ -5,16 +5,16 @@ document.addEventListener("DOMContentLoaded", function() {
       title: "Skatelligence",
       description: "AI Powered Figure Skating Analysis",
       img: "images/Skatelligence_logo_icon.png",
-      ctaText: "More Info",
-      ctaLink: "skatelligence.html",
+      ctaText: "Repository",
+      ctaLink: "https://github.com/nsmartinx/Skatelligence",
       extra: "lorem ipsum"
     },
     {
       title: "Rubik's Cube Robot",
       description: "Custom built 3x3x3 Rubik's Cube Solver",
       img: "images/rubikscube.png",
-      ctaText: "More Info",
-      ctaLink: "rubikscube.html",
+      ctaText: "Repository",
+      ctaLink: "https://github.com/nsmartinx/3x3x3RubiksCubeRobot",
       extra: "lorem ipsum"
     },
     {

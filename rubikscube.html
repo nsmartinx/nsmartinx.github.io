@@ -55,6 +55,15 @@
               <img src="images/rubikscube.png" alt="Lorem ipsum image" />
             </div>
           </div>
+
+          <div style="text-align: center; margin-bottom: 1rem;">
+            <p><strong>WARNING:</strong> This code base was developed before I knew how to write proper code. As such, it is terrible and I strongly advise not looking through it.</p>
+          </div>
+          
+          <div class="toggle-buttons" style="text-align: center; margin-bottom: 5rem;">
+            <a href="https://github.com/nsmartinx/3x3x3RubiksCubeRobot" target="_blank" rel="noopener noreferrer" class="button primary fit" style="margin: 0 0.5rem;">Repository</a>
+          </div>
+          
           
           <!-- Video Intro (moved below the text/image section) -->
           <div class="video-intro">
@@ -85,7 +94,7 @@
                     </p>
                   </div>
                   <div class="image">
-                    <img src="images/rubikscube.png" alt="Mechanical Image">
+                    <img src="images/rubiks_cube2.png" alt="Mechanical Image">
                   </div>
                 </div>
               </section>
@@ -109,7 +118,7 @@
             <div id="software-content" class="toggle-content" style="display: none;">
               <h2 style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">Software</h2>
               <section>
-				<hr>
+				      <hr>
                 <h3>Algorithm</h3>
                 <section>
                     <div class="text">
@@ -117,9 +126,9 @@
                       <p>
                         The external part of the Rubik's Cube is composed of 26 discrete pieces: 8 corner pieces (each with 3 visible faces), 12 edge pieces (2 faces), and 6 fixed center pieces (1 face each). These components are mounted around a central core mechanism that allows for independent rotation of each face layer. While edge and corner pieces move between positions, the centers remain fixed relative to one another and define the cube's reference orientation.
 
-						Standard cube notation is used to describe face rotations and whole-cube manipulations. The six faces are denoted as U (up), D (down), L (left), R (right), F (front), and B (back). A single letter indicates a 90° clockwise rotation of that face; an apostrophe (') denotes a 90° counterclockwise rotation (e.g., R'), and a 2 signifies a 180° rotation (e.g., U2). Full-cube rotations are represented by X, Y, and Z (and X', X2 etc), corresponding to rotations around the right, up, and front-facing axes, respectively.
+						            Standard cube notation is used to describe face rotations and whole-cube manipulations. The six faces are denoted as U (up), D (down), L (left), R (right), F (front), and B (back). A single letter indicates a 90° clockwise rotation of that face; an apostrophe (') denotes a 90° counterclockwise rotation (e.g., R'), and a 2 signifies a 180° rotation (e.g., U2). Full-cube rotations are represented by X, Y, and Z (and X', X2 etc), corresponding to rotations around the right, up, and front-facing axes, respectively.
 
-						The goal of our algorithm is to take as input, the current state of the cube - the position/orientation of the 20 corner/edge pieces and the orientation of the cube as a whole - and output a sequence of moves that restores the cube to it's solved state. The most popular speedcubing method - CFOP, is an option we could implement, but it is designed around being effecient for humans, and thus is less able to take advantage of the strengths of modern computers. There are many effient algorithms already developed (most notably Kociemba's), but we will develop our own, based on the common block-building strategy using in Fewest Move Competitions.
+						            The goal of our algorithm is to take as input, the current state of the cube - the position/orientation of the 20 corner/edge pieces and the orientation of the cube as a whole - and output a sequence of moves that restores the cube to it's solved state. The most popular speedcubing method - CFOP, is an option we could implement, but it is designed around being effecient for humans, and thus is less able to take advantage of the strengths of modern computers. There are many effient algorithms already developed (most notably Kociemba's), but we will develop our own, based on the common block-building strategy using in Fewest Move Competitions.
                       </p>
                   </div>
                 </section>
@@ -207,7 +216,7 @@
                     </p>
                   </div>
                   <div class="image">
-                    <img src="images/rubikscube.png" alt="Computer Vision Image">
+                    <img src="images/rubiks_cube3.png" alt="Computer Vision Image">
                   </div>
                 </div>
               </section>
