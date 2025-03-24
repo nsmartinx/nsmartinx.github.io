@@ -99,7 +99,7 @@
                     </p>
                   </div>
                   <div class="image">
-                    <img src="images/rubikscube.png" alt="Electrical Image">
+                    <img src="images/minimaestro.jpg" alt="Electrical Image">
                   </div>
                 </div>
               </section>
@@ -112,7 +112,6 @@
 				<hr>
                 <h3>Algorithm</h3>
                 <section>
-                  <div class="text-image-section">
                     <div class="text">
                       <h4>Background Information</h4>
                       <p>
@@ -122,63 +121,80 @@
 
 						The goal of our algorithm is to take as input, the current state of the cube - the position/orientation of the 20 corner/edge pieces and the orientation of the cube as a whole - and output a sequence of moves that restores the cube to it's solved state. The most popular speedcubing method - CFOP, is an option we could implement, but it is designed around being effecient for humans, and thus is less able to take advantage of the strengths of modern computers. There are many effient algorithms already developed (most notably Kociemba's), but we will develop our own, based on the common block-building strategy using in Fewest Move Competitions.
                       </p>
-                    </div>
-                    <div class="image">
-                      <img src="images/rubikscube.png" alt="Algorithm Image">
-                    </div>
                   </div>
                 </section>
-                <section>
-                  <div class="text-image-section">
-                    <div class="text">
-                      <h4>Step 1: Blockbuilding</h4>
-                      <p>
-                        The foundation of this algorithm is gradually building up bigger and bigger "blocks" of the cube. For a human, we can learn to recognize patterns and use largely our intuition to make these blocks, but due to the large computational power of a computer we can brute force a lot of these checks. From a given cube position, a reasonably powerful computer can explore all possible cube states that can be achieved in 8 moves from the current cube position (with some added intelligence to discard irrelavent paths). Thus, if we can split a cube up into steps no longer than 8 moves, we can have the computer find the most optimal sequence of moves for each of these steps.
-
-						The computer begins by trying to build a 2x2x2 block, This will usually take around 5 moves, but may take up to 7 for particularly unlucky scrambles.
-
-						The computer then extends this block to a 2x2x3 block, again, this will usually take aorund 5-6 moves, but no worse than 8.
-
-						Finally, the block is extended to what is commonly called F2L-1 (for reasons that will be explained in Step 2), which is also no worse than 8 moves.
-
-						It should be noted that the above numbers were gathered from a monte-carlo simulation, so it is possible that some exceedingly rare scrambles may take more than 8 moves. Even if it took 9-10 moves, the algorithm would still work within several minutes.
-                      </p>
-                    </div>
-                    <div class="image">
-                      <img src="images/rubikscube.png" alt="Algorithm Image">
-                    </div>
-                  </div>
-                </section>
-                <section>
-                  <div class="text-image-section">
-                    <div class="text">
-                      <h4>Step 2: F2L</h4>
-                      <p>
-                        First 2 layers, or F2L for short, is the second step of the common CFOP algorithm. Thinking of the cube in terms of 3 layers, this state is where 2 of these layers are solved, and just one of the outer ones remains. From the block-building stage, we are left with a cube that almost has the first two layers solved, but is missing one corner-edge pair (thus F2L minus one). If you include rotations of the last layer as the same state, there are 42 possible positions/orientations these last two pieces could be in. The computer knows the most effecient algorithm for each of these cases, and simply applies the correct one.
-
-						The longest of these algorithms in 11 moves long, and thus this step takes no more than 12 moves (because of the potential rotation of the top face)
-                      </p>
-                    </div>
-                    <div class="image">
-                      <img src="images/rubikscube.png" alt="Algorithm Image">
-                    </div>
-                  </div>
-                </section>
-                <section>
-                  <div class="text-image-section">
-                    <div class="text">
-                      <h4>Step 3: Last layer</h4>
-                      <p>
-                        Finally, the last layer of the cube is solved. Although humans typically split this step into 2, having 57 and 21 cases each (resulting in "only" 78 algorithms needing memorization), a computer is extremely good at "remembering" all these algorithms. As such, the computer has a database of the most effecient algorithm for all 15,552 cases, and simplies applies the correct one to solve the cube. In the worst case, this step takes 16 moves.
-
-						In the worst possible case, Step 1 takes 23 moves, step 2 takes 12 moves, and step 3 takes 17 moves, resulting in no more than 52 moves to solve the cube. In practice however, espeically due to extra optimizations, it typically takes under 40 moves to solve a cube with this algorithm.
-                      </p>
-                    </div>
-                    <div class="image">
-                      <img src="images/rubikscube.png" alt="Algorithm Image">
-                    </div>
-                  </div>
-                </section>
+				<section>
+					<div class="text-image-section" style="flex-direction: column;">
+					  <div class="text">
+						<h4>Step 1: Blockbuilding</h4>
+						<p>
+						  The foundation of this algorithm is gradually building up bigger and bigger "blocks" of the cube. For a human, we can learn to recognize patterns and use largely our intuition to make these blocks, but due to the large computational power of a computer we can brute force a lot of these checks. From a given cube position, a reasonably powerful computer can explore all possible cube states that can be achieved in 8 moves from the current cube position (with some added intelligence to discard irrelevant paths). Thus, if we can split a cube up into steps no longer than 8 moves, we can have the computer find the most optimal sequence of moves for each of these steps.
+				  
+						  The computer begins by trying to build a 2x2x2 block. This will usually take around 5 moves, but may take up to 7 for particularly unlucky scrambles.
+				  
+						  The computer then extends this block to a 2x2x3 block, again, this will usually take around 5-6 moves, but no worse than 8.
+				  
+						  Finally, the block is extended to what is commonly called F2L-1 (for reasons that will be explained in Step 2), which is also no worse than 8 moves.
+				  
+						  It should be noted that the above numbers were gathered from a Monte Carlo simulation, so it is possible that some exceedingly rare scrambles may take more than 8 moves. Even if it took 9-10 moves, the algorithm would still work within several minutes.
+						</p>
+					  </div>
+					  <div class="image" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+						<figure>
+						  <img src="images/Rubik'sCube2x2x2.png" alt="2x2x2 block" style="max-width: 250px; height: auto;">
+						  <figcaption style="text-align: center;">2x2x2 Block</figcaption>
+						</figure>
+						<figure>
+						  <img src="images/Rubik'sCube2x2x3.png" alt="2x2x3 block" style="max-width: 250px; height: auto;">
+						  <figcaption style="text-align: center;">2x2x3 Block</figcaption>
+						</figure>
+						<figure>
+						  <img src="images/Rubik'sCubeF2l-1.png" alt="F2L-1 block" style="max-width: 250px; height: auto;">
+						  <figcaption style="text-align: center;">F2L-1</figcaption>
+						</figure>
+					  </div>
+					</div>
+				  </section>
+				  
+				  <section>
+					<div class="text-image-section">
+					  <div class="text">
+						<h4>Step 2: F2L</h4>
+						<p>
+						  First 2 layers, or F2L for short, is the second step of the common CFOP algorithm. Thinking of the cube in terms of 3 layers, this state is where 2 of these layers are solved, and just one of the outer ones remains. From the block-building stage, we are left with a cube that almost has the first two layers solved, but is missing one corner-edge pair (thus F2L minus one). If you include rotations of the last layer as the same state, there are 42 possible positions/orientations these last two pieces could be in. The computer knows the most efficient algorithm for each of these cases, and simply applies the correct one.
+				  
+						  The longest of these algorithms is 11 moves long, and thus this step takes no more than 12 moves (because of the potential rotation of the top face).
+						</p>
+					  </div>
+					  <div class="image">
+						<figure style="text-align: center;">
+						  <img src="images/Rubik'sCubeF2l.png" alt="F2L state" style="max-width: 250px; height: auto; display: block; margin: 0 auto;">
+						  <figcaption style="text-align: center;">F2L Complete</figcaption>
+						</figure>
+					  </div>
+					</div>
+				  </section>
+				  
+				  <section>
+					<div class="text-image-section">
+					  <div class="text">
+						<h4>Step 3: Last layer</h4>
+						<p>
+						  Finally, the last layer of the cube is solved. Although humans typically split this step into two, having 57 and 21 cases each (resulting in "only" 78 algorithms needing memorization), a computer is extremely good at "remembering" all these algorithms. As such, the computer has a database of the most efficient algorithm for all 15,552 cases, and simply applies the correct one to solve the cube. In the worst case, this step takes 16 moves.
+				  
+						  In the worst possible case, Step 1 takes 23 moves, Step 2 takes 12 moves, and Step 3 takes 17 moves, resulting in no more than 52 moves to solve the cube. In practice however—especially due to extra optimizations—it typically takes under 40 moves to solve a cube with this algorithm.
+						</p>
+					  </div>
+					  <div class="image">
+						<figure style="text-align: center;">
+							<img src="images/Rubik'sCubeSolved.png" alt="Solved cube" style="max-width: 250px; height: auto; display: block; margin: 0 auto;">
+							<figcaption>Solved State</figcaption>
+						  </figure>
+						  
+					  </div>
+					</div>
+				  </section>
+				  
               <hr>
               <section>
                 <h3>Computer Vision</h3>

@@ -4783,24 +4783,26 @@ body.is-preload #wrapper.fade-in:before {
   }
   
   /* Text and Image Side-by-Side Section */
-  .text-image-section {
+.text-image-section {
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
 	margin-bottom: 2rem;
   }
   
   /* Text block */
   .text-image-section .text {
-	flex: 1 1 60%;
+	flex: 0 1 60%;
 	padding-right: 1rem;
   }
   
   /* Image block */
   .text-image-section .image {
-	flex: 1 1 35%;
+	flex: 0 1 35%;
   }
   
+  /* Image itself */
   .text-image-section .image img {
 	max-width: 100%;
 	height: auto;
@@ -4808,17 +4810,25 @@ body.is-preload #wrapper.fade-in:before {
   }
   
   /* Responsive Adjustments */
-  @media screen and (max-width: 736px) {
+  @media screen and (max-width: 920px) {
 	.text-image-section {
 	  flex-direction: column;
+	  align-items: center;
+	  text-align: center;
 	}
+  
 	.text-image-section .text,
 	.text-image-section .image {
 	  flex: 1 1 100%;
 	  padding-right: 0;
 	  margin-bottom: 1rem;
 	}
+  
+	.text-image-section .image img {
+	  max-width: 90%;
+	}
   }
+  
 /* Toggle Section Container */
 #toggle-section {
 	margin: 3rem -50px; /* removes 50px of the side margin on each side */
