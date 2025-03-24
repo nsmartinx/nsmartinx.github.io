@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
       img: "images/Skatelligence_logo_icon.png",
       ctaText: "Repository",
       ctaLink: "https://github.com/nsmartinx/Skatelligence",
-      extra: "lorem ipsum"
+      extraLink: "skatelligence.html"
     },
     {
       title: "Rubik's Cube Robot",
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
       img: "images/rubikscube.png",
       ctaText: "Repository",
       ctaLink: "https://github.com/nsmartinx/3x3x3RubiksCubeRobot",
-      extra: "lorem ipsum"
+      extraLink: "rubikscube.html"
     },
     {
       title: "Refashion",
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
       li.addEventListener("click", function(e) {
         // If the click originated on an anchor inside, let that behavior occur.
         if (e.target.closest('a')) return;
-        window.location.href = entry.ctaLink;
+        window.location.href = entry.extraLink;
       });
     }
 
