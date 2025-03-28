@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
       img: "images/Skatelligence_logo_icon.png",
       ctaText: "Repository",
       ctaLink: "https://github.com/nsmartinx/Skatelligence",
-      extraLink: "skatelligence.html"
+      extraLink: "skatelligence"
     },
     {
       title: "Rubik's Cube Robot",
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
       img: "images/rubikscube.png",
       ctaText: "Repository",
       ctaLink: "https://github.com/nsmartinx/3x3x3RubiksCubeRobot",
-      extraLink: "rubikscube.html"
+      extraLink: "rubikscube"
     },
     {
       title: "Refashion",
